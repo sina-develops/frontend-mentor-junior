@@ -1,0 +1,153 @@
+:root {
+  --clr-cyan: hsl(193, 38%, 86%);
+  --clr-green: hsl(150, 100%, 66%);
+
+  --clr-neutral-100: hsl(0, 0%, 100%);
+  --clr-neutral-600: hsl(217, 19%, 38%);
+  --clr-neutral-700: hsl(217, 19%, 24%);
+  --clr-neutral-800: hsl(218, 23%, 16%);
+  --clr-neutral-900: hsl(0, 0%, 0%);
+
+  --ff-base: Manrope, sans-serif;
+  --fw-bold: 800;
+  --fs-400: 0.75rem;
+  --fs-500: 1rem;
+  --fs-600: 1.25rem;
+  --fs-700: 1.5rem;
+  --fs-800: 1.75rem;
+  --fs-900: 2rem;
+}
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+  }
+
+  body {
+    min-height: 100dvh;
+    line-height: 1.5;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  button,
+  input,
+  label {
+    line-height: 1.1;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+  }
+}
+
+@layer layout {
+  body {
+    display: grid;
+    place-items: center;
+    font-family: var(--ff-base);
+    background-color: var(--clr-neutral-800);
+  }
+
+  .card {
+    max-width: 18.5rem;
+    position: relative;
+    background-color: var(--clr-neutral-700);
+    margin-inline: 1.5rem;
+    padding: 3rem 1.5rem;
+    border-radius: 0.75rem;
+    text-align: center;
+    display: grid;
+    place-items: center;
+    gap: 1.5rem;
+  }
+
+  .header {
+    text-transform: uppercase;
+    color: var(--clr-green);
+    font-size: var(--fs-400);
+    letter-spacing: 5px;
+  }
+
+  .quote {
+    font-size: var(--fs-800);
+    font-weight: var(--fw-bold);
+    color: var(--clr-cyan);
+    font-size: var(--fs-600);
+  }
+
+  .dice {
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background-color: var(--clr-green);
+    height: 4rem;
+    width: 4rem;
+    position: absolute;
+    bottom: 0%;
+    transform: translateY(2rem);
+  }
+
+  .dice:hover {
+    box-shadow: 0 0 30px 10px hsla(150, 100%, 66%, 0.5);
+  }
+
+  .dice > img {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+
+  @media (width> 384px) {
+    .card {
+      max-width: 24rem;
+    }
+
+    .dice {
+      height: 3.5rem;
+      width: 3.5rem;
+    }
+  }
+}
