@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+    <title>Frontend Mentor | Age calculator app</title>
+  </head>
+  <body>
+    <main>
+      <div class="app">
+        <form id="form" novalidate>
+          <div class="input-box">
+            <label for="day" class="day-label">Day</label>
+            <input
+              type="number"
+              placeholder="DD"
+              id="day"
+              name="day"
+              min="1"
+              max="31"
+              required
+            />
+            <small class="error" aria-live="polite"></small>
+          </div>
+          <div class="input-box">
+            <label for="month" class="month-label">Month</label>
+            <input
+              type="number"
+              placeholder="MM"
+              id="month"
+              name="month"
+              min="1"
+              max="12"
+              required
+            />
+            <small class="error" aria-live="polite"></small>
+          </div>
+          <div class="input-box">
+            <label for="year" class="year-label">Year</label>
+            <input
+              type="number"
+              placeholder="YYYY"
+              id="year"
+              name="year"
+              min="1"
+              max="9999"
+              required
+            />
+            <small class="error" aria-live="polite"></small>
+          </div>
+
+          <button class="btn" type="submit" aria-label="Calculate age">
+            <img
+              src="/assets/images/icon-arrow.svg"
+              alt="Calculate"
+              class="arrow"
+            />
+          </button>
+        </form>
+
+        <div class="app-output" aria-live="polite">
+          <p><span class="result-year">--</span> years</p>
+          <p><span class="result-month">--</span> months</p>
+          <p><span class="result-day">--</span> days</p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,209 @@
+:root {
+  --purple: hsl(259, 100%, 65%);
+  --red: hsl(0, 100%, 67%);
+
+  --white: hsl(0, 0%, 100%);
+  --Off-white: hsl(0, 0%, 94%);
+  --Light-grey: hsl(0, 0%, 86%);
+  --Smokey-grey: hsl(0, 1%, 44%);
+  --Off-black: hsl(0, 0%, 8%);
+
+  --fs-reg: 1rem;
+  --fs-md: 1.5rem;
+  --fs-lg: 2rem;
+  --fs-xl: 3rem;
+  --ff-base: 'Poppns', sans-serif;
+
+  --fw-reg: 400;
+  --fw-bold: 700;
+  --fw-ext-bold: 800;
+}
+
+@font-face {
+  font-family: 'Poppins', sans-serif;
+  src: url(/assets/fonts/Poppins-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'Poppins', sans-serif;
+  src: url(/assets/fonts/Poppins-Italic.ttf);
+  font-style: italic;
+}
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+  }
+
+  body {
+    min-height: 100vh;
+    min-width: 100vw;
+    line-height: 1.5;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  button,
+  input,
+  label {
+    line-height: 1.1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+  img,
+  picture {
+    max-width: 100%;
+    display: block;
+  }
+
+  ul[role='list'],
+  ol[role='list'] {
+    list-style: none;
+  }
+}
+
+@layer layout {
+  body {
+    display: grid;
+    place-items: center;
+    background-color: var(--Light-grey);
+    font-family: var(--ff-base);
+    font-weight: 800;
+  }
+
+  main {
+    margin-inline: 1rem;
+  }
+
+  .app {
+    display: grid;
+    gap: 3rem;
+    max-inline-size: 26rem;
+    margin-inline: auto;
+    background-color: var(--white);
+    color: var(--Off-black);
+    border-radius: 2rem 2rem 9rem 2rem;
+    padding: 3rem 2rem;
+
+    @media (width>30rem) {
+      max-inline-size: 40rem;
+    }
+  }
+
+  #form {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid var(--Light-grey);
+    position: relative;
+
+    @media (width>30rem) {
+      gap: 1.75rem;
+      padding: 2.5rem;
+    }
+  }
+
+  small {
+    display: none;
+    font-style: italic;
+    color: var(--red);
+  }
+
+  .input-box {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  label {
+    text-transform: uppercase;
+    color: var(--Smokey-grey);
+    letter-spacing: 2.5px;
+  }
+
+  input {
+    max-width: 6rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--Light-grey);
+
+    color: var(--Off-black);
+    &:hover {
+      cursor: pointer;
+    }
+
+    @media (width>30rem) {
+      max-width: 7.5rem;
+    }
+  }
+
+  .arrow {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  button {
+    display: grid;
+    place-items: center;
+    background-color: var(--purple);
+    border-radius: 50%;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: transparent;
+    justify-self: center;
+    cursor: pointer;
+    position: absolute;
+    bottom: -18%;
+
+    &:hover {
+      background-color: var(--Off-black);
+    }
+
+    @media (width>30rem) {
+      right: 0;
+    }
+  }
+
+  .app-output {
+    font-size: var(--fs-xl);
+
+    > p span {
+      color: var(--purple);
+    }
+  }
+}
