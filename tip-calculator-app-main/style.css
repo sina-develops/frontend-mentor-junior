@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+  --primary-800: hsl(183, 100%, 15%);
+  --primary-700: hsl(172, 67%, 45%);
+  --primary-600: hsl(186, 14%, 43%);
+  --primary-500: hsl(184, 14%, 56%);
+  --primary-400: hsl(185, 41%, 84%);
+  --primary-300: hsl(189, 41%, 97%);
+  --neutral-100: hsl(0, 0%, 100%);
+
+  --ff-base: 'Space Mono', sans-serif;
+  --fs-reg: 1rem;
+  --fs-md: 1.5rem;
+  --fs-lg: 2.5rem;
+  --fs-xl: 4rem;
+  --fw-bold: 700;
+}
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+  }
+
+  body {
+    line-height: 1.5;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+  }
+
+  input,button {
+    cursor: pointer;
+  }
+}
+
+@layer layout {
+  body {
+    display: grid;
+    gap: 2rem;
+    place-items: center;
+    padding: 3rem;
+    background-color: var(--primary-400);
+    font-family: var(--ff-base);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-reg);
+  }
+  .app {
+    display: grid;
+    gap: 2rem;
+    max-inline-size: 26rem;
+    margin-inline: auto;
+    background-color: var(--neutral-100);
+    padding: 2rem 1.5rem;
+    border-radius: 1rem 1rem 0 0;
+
+    label {
+      color: var(--primary-600);
+    }
+
+    @media (width>660px) {
+      max-inline-size: 60rem;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .bill-input {
+    display: grid;
+    align-items: center;
+    position: relative;
+    margin: 0.5rem 0 2rem;
+  }
+
+  #bill {
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    border: none;
+    background-color: var(--primary-300);
+    text-align: right;
+    color: var(--primary-800);
+  }
+
+  .dollar-icon {
+    position: absolute;
+    left: 1rem;
+  }
+
+  .btn-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin: 1rem 0 2rem;
+
+    @media (width > 660px) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  .btn-container > * {
+    padding: 0.5rem 3rem;
+    color: var(--neutral-100);
+
+    &:focus {
+      background-color: var(--primary-700);
+    }
+
+    @media (width > 660px) {
+      padding: 0.5rem 2.5rem;
+    }
+  }
+
+  #custom-input {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    border: none;
+    background-color: var(--primary-300);
+    text-align: right;
+    color:var(--primary-800) ;
+  }
+
+  #custom-input::placeholder {
+    color: var(--primary-600);
+  }
+
+  .btn-container > :last-child::placeholder {
+    color: var(--primary-800);
+  }
+
+  .person-input {
+    display: grid;
+    align-items: center;
+    position: relative;
+    margin-top: 0.5rem;
+  }
+
+  .person-icon {
+    position: absolute;
+    left: 1rem;
+  }
+
+  #person {
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    border: none;
+    background-color: var(--primary-300);
+    text-align: right;
+    color: var(--primary-800);
+  }
+
+  .tip-amount,
+  .total {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .app_output {
+    display: grid;
+    gap: 2rem;
+    background-color: var(--primary-800);
+    padding: 2.5rem 1.5rem;
+    border-radius: 1rem;
+
+    p {
+      color: var(--neutral-100);
+    }
+
+    span {
+      display: block;
+      color: var(--primary-600);
+    }
+
+    .amount,
+    .all {
+      color: var(--primary-700);
+      font-size: var(--fs-md);
+      @media(width > 660px){
+        font-size: var(--fs-lg);
+      }
+    }
+  }
+
+  .person-error,.bill-error {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .error {
+    color: red;
+    visibility: hidden;
+  }
+
+  .tip-btn {
+    background-color: var(--primary-800);
+  }
+
+  .reset-btn {
+    width: 100%;
+    background-color: var(--primary-700);
+    padding: 0.5rem;
+    text-transform: uppercase;
+    color: var(--primary-800);
+
+    &:focus {
+      background-color: var(--primary-400);
+    }
+
+    @media (width > 660px) {
+      padding: 0;
+    }
+  }
+
+  .tip-btn,
+  .reset-btn {
+    border: 0;
+    border-radius: 0.25rem;
+  }
+}
