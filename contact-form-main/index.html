@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <title>Frontend Mentor | Contact form</title>
+  </head>
+  <body>
+    <header>
+      <div class="success-message">
+        <div class="sucess-message__top">
+          <img src="/assets/images/icon-success-check.svg" />
+          <h2>Message sent</h2>
+        </div>
+        <p>Thanks for completing the form. We'll be in touch soon!</p>
+      </div>
+    </header>
+    
+    <main class="contact">
+      <h1>Contact Us</h1>
+      <form novalidate>
+        <div class="form_group">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" name="first name" required />
+          <span class="error-message" aria-live="polite"></span>
+        </div>
+        <div class="form_group">
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="last name" required />
+          <span class="error-message" aria-live="polite"></span>
+        </div>
+        <div class="form_group span-all">
+          <label for="email">Email Address</label>
+          <input
+            type="email"
+            data-error="Please enter a valid email address"
+            id="email"
+            name="email"
+            required
+          />
+          <span class="error-message" aria-live="polite"></span>
+        </div>
+
+        <fieldset class="span-all">
+          <legend>Query Type</legend>
+
+          <div class="form_group">
+            <input
+              type="radio"
+              data-error="Please select a query type"
+              id="general"
+              name="query"
+              required
+            />
+            <label for="general">General Enquery</label>
+          </div>
+          <div class="form_group">
+            <input
+              type="radio"
+              data-error="Please select a query type"
+              id="support"
+              name="query"
+              required
+            />
+            <label for="support">Support Request</label>
+          </div>
+          <span class="error-message" aria-live="polite"></span>
+        </fieldset>
+
+        <div class="form_group span-all">
+          <label for="message">Message</label>
+          <textarea name="message" id="message" required></textarea>
+          <span class="error-message" aria-live="polite"></span>
+        </div>
+
+        <div class="form_group span-all">
+          <input
+            type="checkbox"
+            data-error="To submit this form,please consent to being contacted"
+            name="consent"
+            id="consent"
+            required
+          />
+          <label for="consent">I consent to being contacted by the team</label>
+          <span class="error-message" aria-live="polite"></span>
+        </div>
+
+        <button class="span-all">Submit</button>
+      </form>
+    </main>
+  </body>
+</html>
