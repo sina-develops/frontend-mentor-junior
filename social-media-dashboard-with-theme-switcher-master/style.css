@@ -1,0 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+  --lime-green: hsl(163, 72%, 41%);
+  --bright-red: hsl(356, 69%, 56%);
+  --clr-facebook: hsl(208, 92%, 53%);
+  --clr-twitter: hsl(203, 89%, 53%);
+  --clr-instagram: linear-gradient(
+      to right,
+      hsl(37, 97%, 70%),
+      hsl(329, 70%, 58%)
+    )
+    1 0 0 0;
+  --clr-youtube: hsl(348, 97%, 39%);
+  --toggle-linear-gradient: linear-gradient(
+    to right,
+    hsl(210, 78%, 56%),
+    hsl(146, 68%, 55%)
+  );
+
+  --toggle: hsl(230, 22%, 74%);
+  --very-dark-blue-bg: hsl(230, 17%, 14%);
+  --very-dark-blue-bg-p: hsl(232, 19%, 15%);
+  --card-bg: hsl(228, 28%, 20%);
+  --card-hover: hsl(228, 28%, 28%);
+  --card-hover-light: hsl(228, 49%, 86%);
+  --text-blue: hsl(228, 34%, 66%);
+  --white: hsl(0, 0%, 100%);
+  -pale-blue-top-bg: hsl(225, 100%, 98%);
+  --light-grayish-blue-card-bg: hsl(227, 47%, 96%);
+  --dark-grayish-blue-text: hsl(228, 12%, 44%);
+  --very-dark-blue-text: hsl(230, 17%, 14%);
+
+  --fw-reg: 400;
+  --fw-bold: 700;
+  --fs-400: 0.875rem;
+  --fs-600: 1.5rem;
+  --fs-700: 2rem;
+  --fs-800: 3rem;
+  --ff-base: 'Inter', sans-serif;
+}
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+  }
+
+  body {
+    line-height: 1.5;
+    min-height: 100dvh;
+    min-height: 100vh;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+  }
+}
+
+@layer layout {
+  body {
+    font-family: var(--ff-base);
+    font-size: var(--fs-400);
+    background-color: var(--very-dark-blue-bg);
+    color: var(--white);
+  }
+
+  main {
+    display: grid;
+    gap: 2.5rem;
+    padding: 2rem 6rem 4rem 6rem;
+  }
+
+  .card__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .subheader {
+    color: var(--text-blue);
+  }
+
+  .button {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    height: 28px;
+    width: 54px;
+  }
+
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      hsl(210, 78%, 56%),
+      hsl(146, 68%, 55%)
+    );
+    border-radius: 100vw;
+    cursor: pointer;
+    transition: 0.4s;
+  }
+
+  .slider::before {
+    position: absolute;
+    content: '';
+    left: 4px;
+    bottom: 4px;
+    height: 20px;
+    width: 20px;
+    background-color: var(--very-dark-blue-bg-p);
+    border-radius: 50%;
+    transition: 0.4s;
+  }
+
+  input:checked + .slider::before {
+    transform: translateX(26px);
+    background-color: var(--toggle);
+  }
+
+  .card_box {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+
+    @media (width < 650px) {
+      grid-template-columns: 1fr;
+    }
+
+    > :nth-child(1) {
+      border-top: 5px solid var(--clr-facebook);
+
+      > :first-child {
+        color: var(--text-blue);
+      }
+
+      > :last-child {
+        color: var(--lime-green);
+      }
+    }
+    > :nth-child(2) {
+      border-top: 5px solid var(--clr-twitter);
+
+      > :first-child {
+        color: var(--text-blue);
+      }
+
+      > :last-child {
+        color: var(--lime-green);
+      }
+    }
+    > :nth-child(3) {
+      border-image: linear-gradient(
+          to right,
+          hsl(37, 97%, 70%),
+          hsl(329, 70%, 58%)
+        )
+        1 0 0 0;
+      border-width: 4px;
+      border-style: solid;
+
+      > :first-child {
+        color: var(--text-blue);
+      }
+
+      > :last-child {
+        color: var(--lime-green);
+      }
+    }
+    > :nth-child(4) {
+      border-top: 5px solid var(--clr-youtube);
+
+      > :first-child {
+        color: var(--text-blue);
+      }
+
+      > :last-child {
+        color: var(--bright-red);
+      }
+    }
+  }
+
+  .card,
+  .stat {
+    background-color: var(--card-bg);
+    border-radius: 0.5rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--card-hover);
+    }
+  }
+
+  .card {
+    display: grid;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 2rem 4rem;
+    text-align: center;
+
+    span > img {
+      margin-right: 4px;
+    }
+  }
+
+  .card__data {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .followers {
+    display: grid;
+
+    > :nth-child(1) {
+      font-size: var(--fs-800);
+      font-weight: var(--fw-bold);
+      letter-spacing: 2px;
+    }
+
+    > :nth-child(2) {
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: var(--text-blue);
+    }
+  }
+
+  .stat_box {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    align-items: center;
+
+    * > :nth-child(3) {
+      font-size: var(--fs-600);
+      font-weight: var(--fw-bold);
+    }
+
+    @media (width < 650px) {
+      grid-template-columns: 1fr;
+    }
+
+    > :nth-child(1) {
+      span {
+        color: var(--lime-green);
+      }
+    }
+
+    > :nth-child(2) {
+      span {
+        color: var(--bright-red);
+      }
+    }
+    > :nth-child(3) {
+      span {
+        color: var(--lime-green);
+      }
+    }
+    > :nth-child(4) {
+      span {
+        color: var(--lime-green);
+      }
+    }
+    > :nth-child(5) {
+      span {
+        color: var(--lime-green);
+      }
+    }
+    > :nth-child(6) {
+      span {
+        color: var(--lime-green);
+      }
+    }
+    > :nth-child(7) {
+      span {
+        color: var(--bright-red);
+      }
+    }
+    > :nth-child(8) {
+      span {
+        color: var(--bright-red);
+      }
+    }
+  }
+
+  .stat {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+    padding: 2rem 1.5rem;
+
+    span > img {
+      margin-right: 4px;
+    }
+
+    > :nth-child(1) {
+      color: var(--text-blue);
+    }
+
+    > :nth-child(2) {
+      justify-self: end;
+    }
+
+    > :nth-child(4) {
+      justify-self: end;
+    }
+  }
+}
